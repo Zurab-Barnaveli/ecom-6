@@ -1,12 +1,7 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-
 import React from "react";
-
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-
 import "./carousel.scss";
-
 import { Link } from "react-router-dom";
 
 export const CarouselItem = () => {
@@ -41,7 +36,7 @@ export const CarouselItem = () => {
   return (
     <>
       <Carousel autoPlay interval={2000} showThumbs={false} infiniteLoop>
-        {carouselProducts.map(product => (
+        {carouselProducts.map((product) => (
           <Link to={`/product/${product.id}`} key={product.id}>
             <div>
               <img src={product.image} alt={product.title} />

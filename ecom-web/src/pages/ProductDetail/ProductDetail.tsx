@@ -11,9 +11,15 @@ const ProductDetail = () => {
   const selectedImage = useStore((state) => state.selectedImage);
   const setProduct = useStore((state) => state.setProduct);
   const setSelectedImage = useStore((state) => state.setSelectedImage);
+  const setCartItems = useStore((state) => state.setCartItems);
 
   const handleImageClick = (image: React.SetStateAction<string>) => {
     setSelectedImage(image);
+  };
+  const handleAddToCart = () => {
+    if (product) {
+      setCartItems(product);
+    }
   };
 
   const fetchSingleProduct = async () => {
@@ -52,16 +58,20 @@ const ProductDetail = () => {
         <Typography variant='subtitle1' className='product-category'>
           Category: {product?.category}
         </Typography>
-        <Typography className='product-description'>
-          {product?.description}
+        <Typography variant='h6' className='product-price'>
+          ${product?.price}
         </Typography>
         <Button
           variant='contained'
           color='primary'
           className='add-to-cart-button'
+          onClick={handleAddToCart}
         >
           Add to Cart
         </Button>
+        <Typography className='product-description'>
+          {product?.description}
+        </Typography>
       </Box>
     </Box>
   );

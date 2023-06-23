@@ -25,14 +25,15 @@ const ProductList = ({ products, handleButtonClick }: ProductProps) => {
         gridTemplateColumns: "repeat(5, 280px)",
         gap: "1rem",
         marginTop: "1rem",
+        marginLeft: "1rem",
       }}
     >
-      {products.map(product => (
+      {products.map((product) => (
         <Box key={product.id}>
-          <div className="product_label">
+          <div className='product_label'>
             ზუმერული ფასები
-            <div className="product_label_after"></div>
-            <div className="product_label_before"></div>
+            <div className='product_label_after'></div>
+            <div className='product_label_before'></div>
           </div>
           <Box
             key={product.id}
@@ -51,7 +52,7 @@ const ProductList = ({ products, handleButtonClick }: ProductProps) => {
             }}
           >
             <Link to={`/product/${product.id}`} key={product.id}>
-              <img src={product.images[0]} alt="" className="prod-img" />
+              <img src={product.images[0]} alt='' className='prod-img' />
 
               <Box
                 sx={{
@@ -90,7 +91,7 @@ const ProductList = ({ products, handleButtonClick }: ProductProps) => {
           </Box>
         </Box>
       ))}
-      <Button onClick={handleButtonClick}>Load more</Button>
+      <Button onClick={handleButtonClick}>More</Button>
     </Box>
   );
 };

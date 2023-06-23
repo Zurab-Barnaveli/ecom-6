@@ -1,95 +1,44 @@
-import { Box, Button, Typography } from "@mui/material";
-
 import React from "react";
-
+import { Box, Typography, Button } from "@mui/material";
 import { useStore } from "../../zustand/store";
+import "./Cart.scss";
 
 const Cart = () => {
-  const { getTotalPrice, cartItems } = useStore();
+  const cartItems = useStore((state) => state.cartItems);
+  const removeFromCart = useStore((state) => state.removeFromCart);
+  const getTotalPrice = useStore((state) => state.getTotalPrice);
+
   return (
-    <Box
-      sx={{
-        display: "flex",
-        gap: "30px",
-      }}
-    >
-      <Box
-        sx={{
-          width: "65%",
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "space-around",
-              marginBottom: "30px",
-            }}
-          >
-            <Typography>სახელი</Typography>
-            <Typography>რაოდენობა</Typography>
-            <Typography>ფასი</Typography>
-            <Typography>ჯამი</Typography>
+    <Box className='cart-container'>
+      <Typography variant='h4' className='cart-title'>
+        Shopping Cart
+      </Typography>
+      <Box className='cart-items'>
+        {cartItems.map((item) => (
+          <Box key={item.id} className='cart-item'>
+            <img
+              src={item.images[0]}
+              alt={item.title}
+              className='cart-item-image'
+            />
+            <Typography className='cart-item-title'>{item.title}</Typography>
+            <Typography className='cart-item-price'>${item.price}</Typography>
+            <Button
+              variant='contained'
+              color='secondary'
+              className='remove-button'
+              onClick={() => removeFromCart(item.id)}
+            >
+              Remove
+            </Button>
           </Box>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            {cartItems.map(item => (
-              <Box
-                key={item.id}
-                sx={{
-                  width: "150px",
-                  marginBottom: "20px",
-                }}
-              >
-                <Box
-                  sx={{
-                    display: "flex",
-                    gap: "205px",
-                  }}
-                >
-                  <Typography>{item.title}</Typography>
-                  <Typography>{item.amount}</Typography>
-                  <Typography>{item.price}</Typography>
-                  <Typography>{item.price * item.amount}</Typography>
-                </Box>
-              </Box>
-            ))}
-          </Box>
-        </Box>
+        ))}
       </Box>
-      <Box
-        sx={{
-          width: "30%",
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-          }}
-        >
-          <Typography>ჯამი :</Typography>
-        </Box>
-        <Box
-          sx={{
-            display: "flex",
-            gap: "40px",
-            flexDirection: "column",
-            marginTop: "30px",
-          }}
-        >
-          <Typography>სულ თანხა : {getTotalPrice()} ლ</Typography>
-          <Typography>ჯამი : {getTotalPrice()} ლ</Typography>
-          <Button>გადახდა</Button>
-        </Box>
+      <Box className='cart-summary'>
+        <Typography variant='h6'>Total: ${getTotalPrice()}</Typography>
+        <Button variant='contained' color='primary' className='checkout-button'>
+          Proceed to Checkout
+        </Button>
       </Box>
     </Box>
   );
