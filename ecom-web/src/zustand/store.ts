@@ -20,8 +20,8 @@ export const useStore = create<ProductStore>((set) => ({
   increasePageSize: () =>
     set((state) => ({ initialPageSize: state.initialPageSize + 15 })),
 
-  setProduct: (product) => set({ product }),
-  setSelectedImage: (image) => set({ selectedImage: image }),
+  setProduct: (product: Product) => set({ product }),
+  setSelectedImage: (image: string) => set({ selectedImage: image }),
 
   fetchProduct: async (keyword) => {
     const { initialPageSize } = useStore.getState();
