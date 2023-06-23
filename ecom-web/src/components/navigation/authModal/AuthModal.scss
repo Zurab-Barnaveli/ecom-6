@@ -1,0 +1,19 @@
+.modal {
+  position: absolute;
+  margin-top: 10px;
+  right: 20px;
+  width: 350px;
+  background-color: white;
+  z-index: 2;
+  border-radius: 10px;
+  padding: 10px;
+  &-btn {
+    display: flex;
+    gap: 20px;
+  }
+
+  &-controls {
+    display: flex;
+    justify-content: space-between;
+  }
+}

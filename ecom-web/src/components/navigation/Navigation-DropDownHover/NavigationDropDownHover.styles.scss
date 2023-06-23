@@ -1,0 +1,52 @@
+@import url("https://free.bboxtype.com/embedfonts/?family=FiraGO:500");
+
+.right-menu:hover .dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dropdown-menu {
+  box-shadow: 0px -25px 20px -20px rgba(0, 0, 0, 0.45),
+    25px 0 20px -20px rgba(0, 0, 0, 0.45),
+    0px 25px 20px -20px rgba(0, 0, 0, 0.45),
+    -25px 0 20px -20px rgba(0, 0, 0, 0.45);
+}
+
+.cart-button {
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: #0a3251;
+  font-family: "firaGo", sans-serif;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.cart-item {
+  text-decoration: none;
+  color: #fe5f55;
+}
+
+.in-cart-button {
+  background-color: #0a3251;
+  border: 1px solid #0a3251;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  font-family: "firaGo", sans-serif;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 221px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #fe5f55;
+    border: 1px solid #fe5f55;
+    transition: all 0.3s ease-in-out;
+  }
+}
