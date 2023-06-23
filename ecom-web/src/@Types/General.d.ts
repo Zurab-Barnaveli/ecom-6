@@ -47,3 +47,11 @@ type LogInType = {
   email: string;
   password: string;
 };
+
+declare type ProductType = {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  images: string[];
+};

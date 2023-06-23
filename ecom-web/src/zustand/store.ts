@@ -1,15 +1,29 @@
 import { create } from "zustand";
-import { Ajax } from "../../src/Utils/Ajax";
-export const useStore = create<ProductStore>(set => ({
+import { Ajax } from "../../src/utils/Ajax";
+
+type ProductType = {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  images: string[];
+};
+
+export const useStore = create<ProductStore>((set) => ({
   products: [],
   brands: [],
   initialPageSize: 15,
   cartItems: [],
+  product: null,
+  selectedImage: "",
 
   increasePageSize: () =>
-    set(state => ({ initialPageSize: state.initialPageSize + 15 })),
+    set((state) => ({ initialPageSize: state.initialPageSize + 15 })),
 
-  fetchProduct: async keyword => {
+  setProduct: (product) => set({ product }),
+  setSelectedImage: (image) => set({ selectedImage: image }),
+
+  fetchProduct: async (keyword) => {
     const { initialPageSize } = useStore.getState();
     try {
       const data = {
@@ -36,10 +50,10 @@ export const useStore = create<ProductStore>(set => ({
     }
   },
 
-  setCartItems: product => {
-    set(prev => {
+  setCartItems: (product) => {
+    set((prev) => {
       const indexOfItem = prev.cartItems.findIndex(
-        item => item.id === product.id
+        (item) => item.id === product.id
       );
       if (indexOfItem === -1) {
         return {
@@ -57,9 +71,9 @@ export const useStore = create<ProductStore>(set => ({
     });
   },
 
-  removeFromCart: itemId =>
-    set(state => ({
-      cartItems: state.cartItems.filter(item => item.id !== itemId),
+  removeFromCart: (itemId) =>
+    set((state) => ({
+      cartItems: state.cartItems.filter((item) => item.id !== itemId),
     })),
   clearCart: () => set({ cartItems: [] }),
   //   getTotalPrice: () => {
