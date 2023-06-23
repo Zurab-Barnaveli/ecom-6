@@ -1,4 +1,4 @@
-.login-container {
+.registration-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,11 +29,11 @@ button {
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
-  background-color: #4caf50;
+  background-color: #008cba;
   color: white;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #007ab3;
 }

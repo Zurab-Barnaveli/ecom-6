@@ -18,10 +18,10 @@ const NavigationDropDownHover = () => {
           float: "right",
           cursor: "pointer",
         }}
-        className="right-menu"
+        className='right-menu'
       >
-        <img src="/src/assets/icons/cart.svg" alt="cart" />
-        <button className="cart-button">{getTotalPrice()}ლ</button>
+        <img src='/src/assets/icons/cart.svg' alt='cart' />
+        <button className='cart-button'>{getTotalPrice()}ლ</button>
         <Box
           sx={{
             position: "absolute",
@@ -31,7 +31,7 @@ const NavigationDropDownHover = () => {
             backgroundColor: "#fff",
             cursor: "pointer",
           }}
-          className="dropdown-menu"
+          className='dropdown-menu'
         >
           <Box
             sx={{
@@ -66,7 +66,7 @@ const NavigationDropDownHover = () => {
                 }}
               >
                 <Typography
-                  className="cart-item"
+                  className='cart-item'
                   sx={{
                     textDecoration: "none",
                     color: "#0a3251",
@@ -123,8 +123,8 @@ const NavigationDropDownHover = () => {
                   cursor: "pointer",
                 }}
               >
-                <Link to="/cart">
-                  <button className="in-cart-button">კალათაში გადასვლა</button>
+                <Link to='/cart'>
+                  <button className='in-cart-button'>კალათაში გადასვლა</button>
                 </Link>
               </Box>
             </Box>

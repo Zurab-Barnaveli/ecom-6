@@ -1,9 +1,7 @@
 import * as React from "react";
-
 import { useStore } from "../../../zustand/store";
 import { Box } from "@mui/material";
 import { useEffect } from "react";
-
 import "./Brands.scss";
 
 export default function Brands() {

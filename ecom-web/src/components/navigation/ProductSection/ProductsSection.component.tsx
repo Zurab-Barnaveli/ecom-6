@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
-
 import { useStore } from "../../../zustand/store";
-
 import { CarouselItem } from "../Carousel/CarouselComponent";
 import ProductList from "../../../pages/Home/ProductList";
 

@@ -12,13 +12,13 @@ type ProductType = {
 export const useStore = create<ProductStore>((set) => ({
   products: [],
   brands: [],
-  initialPageSize: 15,
+  initialPageSize: 16,
   cartItems: [],
   product: null,
   selectedImage: "",
 
   increasePageSize: () =>
-    set((state) => ({ initialPageSize: state.initialPageSize + 15 })),
+    set((state) => ({ initialPageSize: state.initialPageSize + 16 })),
 
   setProduct: (product: Product) => set({ product }),
   setSelectedImage: (image: string) => set({ selectedImage: image }),

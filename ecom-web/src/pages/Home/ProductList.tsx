@@ -22,16 +22,16 @@ const ProductList = ({ products, handleButtonClick }: ProductProps) => {
     <Box
       sx={{
         display: "grid",
-        gridTemplateColumns: "repeat(5, 280px)",
+        gridTemplateColumns: "repeat(4, 320px)",
         gap: "1rem",
         marginTop: "1rem",
-        marginLeft: "1rem",
+        marginLeft: "7rem",
       }}
     >
       {products.map((product) => (
         <Box key={product.id}>
           <div className='product_label'>
-            ზუმერული ფასები
+            ფასდაკლება
             <div className='product_label_after'></div>
             <div className='product_label_before'></div>
           </div>

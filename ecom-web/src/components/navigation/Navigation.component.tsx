@@ -15,7 +15,7 @@ const Navigation = () => {
   return (
     <>
       <Box
-        className="header__top"
+        className='header__top'
         sx={{
           borderBottom: "1px solid #e5e5e5",
           paddingBottom: "10px",
@@ -33,7 +33,7 @@ const Navigation = () => {
           }}
         >
           <Box
-            className="header__hot__line"
+            className='header__hot__line'
             sx={{
               display: "flex",
               alignItems: "center",
@@ -41,13 +41,13 @@ const Navigation = () => {
             }}
           >
             <img
-              src="/src/assets/icons/phone-contact.svg"
-              alt="Logo"
-              className="phone__logo"
+              src='/src/assets/icons/phone-contact.svg'
+              alt='Logo'
+              className='phone__logo'
             />
 
             <Typography
-              className="phone__text"
+              className='phone__text'
               sx={{
                 fontSize: "12px",
                 fontFamily: "firaGO",
@@ -59,8 +59,8 @@ const Navigation = () => {
             </Typography>
 
             <a
-              href="tel:*7007 / +995 (32) 2 60 30 60 "
-              className="phone__number"
+              href='tel:*7007 / +995 (32) 2 60 30 60 '
+              className='phone__number'
             >
               *7007 / +995 (32) 2 60 30 60
             </a>
@@ -103,7 +103,7 @@ const Navigation = () => {
       </Box>
 
       <Box
-        className="header__bottom"
+        className='header__bottom'
         sx={{
           display: "flex",
           justifyContent: "space-between",
@@ -111,9 +111,9 @@ const Navigation = () => {
           marginRight: "20px",
         }}
       >
-        <Link to="/">
-          <Box className="main__logo">
-            <img src="/src/assets/icons/logo.svg" alt="logo" />
+        <Link to='/'>
+          <Box className='main__logo'>
+            <img src='/src/assets/icons/logo.svg' alt='logo' />
           </Box>
         </Link>
         <Box

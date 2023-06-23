@@ -86,7 +86,7 @@ const AuthModal = () => {
               <div className='modal-controls'>
                 <div className='modal-btn'>
                   <button onClick={handleBack} disabled={activeStep === 0}>
-                    უკან დაბრუნება
+                    შესვლა
                   </button>
                   <button onClick={handleNext} disabled={activeStep === 1}>
                     რეგისტრაცია
