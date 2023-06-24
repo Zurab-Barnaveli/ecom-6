@@ -1,6 +1,16 @@
 import { create } from "zustand";
 import { Ajax } from "../../src/utils/Ajax";
 
+type UserState = {
+  user: any;
+  setUser: (user: any) => void;
+};
+
+export const useUserStore = create<UserState>((set) => ({
+  user: null,
+  setUser: (user) => set({ user }),
+}));
+
 type ProductType = {
   id: string;
   title: string;
@@ -89,16 +99,4 @@ export const useStore = create<ProductStore>((set) => ({
     }
     return totalPrice;
   },
-
-  ////////////////////
-  // firstName: "",
-  // lastName: "",
-  // phoneNumber: "",
-  // email: "",
-  // password: "",
-  // setFirstName: firstName => set({ firstName }),
-  // setLastName: lastName => set({ lastName }),
-  // setPhoneNumber: phoneNumber => set({ phoneNumber }),
-  // setEmail: email => set({ email }),
-  // setPassword: password => set({ password }),
 }));

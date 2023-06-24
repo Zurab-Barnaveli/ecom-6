@@ -65,20 +65,6 @@ const NavigationDropDownHover = () => {
                   alignContent: "center",
                 }}
               >
-                <Typography
-                  className='cart-item'
-                  sx={{
-                    textDecoration: "none",
-                    color: "#0a3251",
-                    paddingTop: "10px",
-                    fontSize: "16px",
-                    fontWeight: "bold",
-                    fontFamily: "firaGO",
-                    marginLeft: "15px",
-                  }}
-                >
-                  კალათა
-                </Typography>
                 <div>{cartItems.length}</div>
               </Box>
 

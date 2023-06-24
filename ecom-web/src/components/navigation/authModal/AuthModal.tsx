@@ -1,10 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
-
 import { Box, Typography } from "@mui/material";
-
 import Register from "../../../pages/Register/Register";
 import LogIn from "../../../pages/LogIn/LogIn";
-
 import "./AuthModal.scss";
 
 const AuthModal = () => {

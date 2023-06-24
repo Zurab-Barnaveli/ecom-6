@@ -31,11 +31,6 @@ type ProductStore = {
   setCartItems: (product: Product) => void;
   removeFromCart: (itemId: string) => void;
   getTotalPrice: () => void;
-  //   setFirstName: (firstName: string) => void;
-  //   setLastName: (lastName: string) => void;
-  //   setPhoneNumber: (phoneNumber: string) => void;
-  //   setEmail: (email: string) => void;
-  //   setPassword: (firstName: string) => void;
 };
 
 type RegisterFormData = {
@@ -58,3 +53,11 @@ declare type ProductType = {
   category: string;
   images: string[];
 };
+
+interface User {
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  email: string;
+  avatar?: string;
+}

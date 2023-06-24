@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./LogIn.scss";
+import styles from "./Login.scss";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -17,12 +17,9 @@ const Login = () => {
       });
       if (res.ok) {
         const data = await res.json();
-        localStorage.setItem("token", data.AccessToken);
-        localStorage.setItem("User", JSON.stringify(data.User));
-        // Navigate to a different page or reload
-        // (replace this with your desired navigation logic)
+        localStorage.setItem("token", data.token);
+        window.location.href = "/dashboard";
       } else {
-        // Show an error message
         alert("Login failed. Please check your email and password.");
       }
     } catch (error) {
@@ -31,8 +28,8 @@ const Login = () => {
   };
 
   return (
-    <div className='login-container'>
-      <form onSubmit={handleSubmit}>
+    <div className={styles.container}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <input
           type='email'
           placeholder='Email'

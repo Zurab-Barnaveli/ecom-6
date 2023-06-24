@@ -1,40 +1,34 @@
 import React, { useState } from "react";
 
-const Registration = () => {
+const UserProfile = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    const token = localStorage.getItem("token");
+    if (!token) {
+      alert("Not authenticated");
+      return;
+    }
     try {
-      const res = await fetch("http://localhost:8080/register", {
+      const res = await fetch("http://localhost:8080/user", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({
-          firstName,
-          lastName,
-          phoneNumber,
-          email,
-          password,
-        }),
+        body: JSON.stringify({ firstName, lastName, phoneNumber, email }),
       });
-
-      // Log the response status and message
-      console.log("Response Status:", res.status);
-      console.log("Response Message:", await res.text());
-
       if (res.ok) {
-        window.location.href = "/login";
+        alert("Profile updated successfully.");
       } else {
-        alert("Registration failed. Please check your input.");
+        alert("Failed to update profile.");
       }
     } catch (error) {
-      console.error("Error during registration:", error);
+      console.error("Error during profile update:", error);
     }
   };
 
@@ -65,16 +59,10 @@ const Registration = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <input
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type='submit'>Register</button>
+        <button type='submit'>Update Profile</button>
       </form>
     </div>
   );
 };
 
-export default Registration;
+export default UserProfile;
